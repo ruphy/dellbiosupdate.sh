@@ -16,7 +16,7 @@
 ##      Date:           Thu, Mar 26 2009                                                                   ##
 ##      Author:         Callea Gaetano Andrea (aka cga)                                                    ##
 ##      Contributors:                                                                                      ##
-##      Languages:      BASH                                                                               ##
+##      Language:      BASH                                                                               ##
 ##      Location:       http://github.com/cga/dellbiosupdate.sh/tree/master                                ##
 ##                                                                                                         ##
 #############################################################################################################
