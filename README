@@ -1,0 +1,85 @@
+LICENCE:
+
+This script is Free Software, it's licensed under the GPLv3 and has ABSOLUTELY NO WARRANTY
+you can find and read the complete version of the GPLv3 @ http://www.gnu.org/licenses/gpl.html
+
+NOTE: A LICENCE file containing a verbatim copy of the GPLv3 is included in this package.
+
+FAQ:
+
+Q: what does this script do?
+A: this script updates the BIOS of any DELL PC, server, laptop, netbook. Interactively.
+
+Q: does it actually work??
+A: it works 100%, i use it regularly to update the BIOS of my own DELL XPS M1330.
+
+Q: where did you get the process??
+A: the script is based on the orginal DELL procedure howto:
+   http://linux.dell.com/wiki/index.php/Tech/libsmbios_dellBiosUpdate
+
+Q: which tools does it use?
+A: It uses official DELL tools included in package "libsmbios" available for most distros.
+   http://linux.dell.com/libsmbios/main/index.html
+
+Q: why did you write this script??
+A: basically i was tired of doing a repetitive task by hand.
+
+Q: can i trust this script?
+A: if you don't trust this script just see for yourself what the tools do:
+   http://linux.dell.com/wiki/index.php/Tech/libsmbios_dellBiosUpdate
+   http://linux.dell.com/libsmbios/main/index.html
+
+Q: why do i have to run this script as root?
+A: because updating the BIOS requires root privileges since libsmbios has to be run as root.
+   NOTE: you'd run the process as root even following the DELL procedure by hand.
+
+Q: can i help somewhow??
+A: yes indeed. help and ideas are welcome =)
+
+Q: great!! can i contact you??
+A: for any suggestions and contributions contact cga @ callea.gaetano.andrea@gmail.com
+
+Q: can i reuse the script to make my own??
+A: hey this is Free Software!! you can do whatever the licence i chose allows you to.
+   AS LONG AS YOU RESPECT THE LICENCE ITSLEF
+
+Q: can i reimplment the idea to make an application??
+A: see next FAQs please.
+
+Q: do you have any plans for the future of this script???
+A: yes indeed. i'd like to make it a real application for KDE >=4 one day.
+
+Q: why for KDE 4 only?
+A: well i said KDE 4 because i use it. i'm thinking about Qt >=4 only really.
+   so it will be portable across Linux, OS X and Windows.
+
+Q: so... can i make the application??
+A: indeed; i still can't code C++ and Qt so you are more than welcome.
+   but if you do please let me know and we can use my repos.
+
+Q: once the applications will exist and work, will this script be still available??
+A: yes, i plan to make the application but the script will remain available for 
+   people using CLI only distros and for those who don't want to install the application.
+
+CURRENT VERSION:
+
+Name:           dellbiosupdate.sh
+Version:        0.1.0
+Date:           Thu, Mar 26 2009
+Author:         Callea Gaetano Andrea (aka cga)
+Contributors:   
+Languages:      BASH
+Location:       http://github.com/cga/dellbiosupdate.sh/tree/master
+
+VERSION HISTORY:
+
+0.1.0  Thu, Mar 26 2009 first version; it works 100% but it needs some more love ;)
+
+TODO:
+
+0.1.1  Use "case/esac" and implement a better script.
+
+THANKS TO:
+
+thanks a *lot* to the folks in #bash freenode's chat room for help and snippets!!!
+thanks to mind and tosky for suggestions.
