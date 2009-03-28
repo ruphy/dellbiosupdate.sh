@@ -1,3 +1,15 @@
+CURRENT VERSION:
+
+Name:           dellbiosupdate.sh
+Version:        0.1.1
+Date:           Sat, Mar 28 2009
+Author:         Callea Gaetano Andrea (aka cga)
+Contributors:
+Languages:      BASH
+Location:       http://github.com/cga/dellbiosupdate.sh/tree/master
+
+NOTE: See VERSION_HISTORY for info on Version History and TODO
+
 LICENCE:
 
 This script is Free Software, it's licensed under the GPLv3 and has ABSOLUTELY NO WARRANTY
@@ -41,7 +53,7 @@ A: for any suggestions and contributions contact cga @ callea.gaetano.andrea@gma
 
 Q: can i reuse the script to make my own??
 A: hey this is Free Software!! you can do whatever the licence i chose allows you to.
-   AS LONG AS YOU RESPECT THE LICENCE ITSLEF
+   AS LONG AS YOU RESPECT THE LICENCE ITSELF of course ;)
 
 Q: can i reimplment the idea to make an application??
 A: see next FAQs please.
@@ -54,32 +66,23 @@ A: well i said KDE 4 because i use it. i'm thinking about Qt >=4 only really.
    so it will be portable across Linux, OS X and Windows.
 
 Q: so... can i make the application??
-A: indeed; i still can't code C++ and Qt so you are more than welcome.
-   but if you do please let me know and we can use my repos.
+A: i'm already planning the application with some KDE 4 developer. We plan of
+   doing a proper one with Qt and usable for other vendors other than DELL too.
+   to do this we are planning to make it modular since libsmbios works for any HDR BIOS. 
+   the vendors might code something like dellBiosUpdate (DELL's tool) and we can add it
+   in order to use it for any vendors' computer.
 
+Q: great!! what will be the application called???
+A: i'd like to name it "QtBiosUpdate".
+
+Q: can i join "QtBiosUpdate" development??
+A: there's no development at the moment, we're still planning.
+   and since i can't code C++ and Qt yet and the dev has now time right now
+   you are more than welcome to join even at this early stage.
+
+Q: where will "QtBiosUpdate" hosted??
+A: i'll create the git repo here once we have something to work on.
+   
 Q: once the applications will exist and work, will this script be still available??
 A: yes, i plan to make the application but the script will remain available for 
    people using CLI only distros and for those who don't want to install the application.
-
-CURRENT VERSION:
-
-Name:           dellbiosupdate.sh
-Version:        0.1.0
-Date:           Thu, Mar 26 2009
-Author:         Callea Gaetano Andrea (aka cga)
-Contributors:   
-Languages:      BASH
-Location:       http://github.com/cga/dellbiosupdate.sh/tree/master
-
-VERSION HISTORY:
-
-0.1.0  Thu, Mar 26 2009 first version; it works 100% but it needs some more love ;)
-
-TODO:
-
-0.1.1  Use "case/esac" and implement a better script.
-
-THANKS TO:
-
-thanks a *lot* to the folks in #bash freenode's chat room for help and snippets!!!
-thanks to mind and tosky for suggestions.

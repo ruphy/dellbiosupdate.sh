@@ -1,0 +1,31 @@
+CURRENT VERSION:
+
+Name:           dellbiosupdate.sh
+Version:        0.1.1
+Date:           Sat, Mar 28 2009
+Author:         Callea Gaetano Andrea (aka cga)
+Contributors:
+Languages:      BASH
+Location:       http://github.com/cga/dellbiosupdate.sh/tree/master
+
+VERSION HISTORY:
+
+0.1.1  Sat, Mar 28 2009:
+
+	added a check on uid;
+	better "select BIOS VERSION" menu with option to quit;
+	now you can use it also to check the available BIOS Version ;)
+	modified README;
+	added VERIONS_HISTORY file;
+
+0.1.0  Thu, Mar 26 2009:
+	first version;
+	it works 100% but it needs some more love ;)
+
+TODO:
+
+0.1.2  Use "case/esac" and implement a better script.
+
+THANKS TO:
+	thanks a *lot* to the folks in #bash freenode's chat room for help and snippets!!!
+	thanks to mind and tosky for suggestions.
