@@ -45,6 +45,12 @@ Q: why do i have to run this script as root?
 A: because updating the BIOS requires root privileges since libsmbios has to be run as root.
    NOTE: you'd run the process as root even following the DELL procedure by hand.
 
+Q: can i use this script to check if new BIOS Versions are availble?
+A: yes indeed, since version 0.1.1 ;)
+
+Q: how do i do that??
+A: just run the script and see if the selection has a new version, else quit.
+
 Q: can i help somewhow??
 A: yes indeed. help and ideas are welcome =)
 
