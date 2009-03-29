@@ -1,8 +1,8 @@
 CURRENT VERSION:
 
 Name:           dellbiosupdate.sh
-Version:        0.1.1
-Date:           Sat, Mar 28 2009
+Version:        0.1.1.1
+Date:           Sun, Mar 29 2009
 Author:         Callea Gaetano Andrea (aka cga)
 Contributors:
 Languages:      BASH
@@ -30,7 +30,7 @@ A: the script is based on the orginal DELL procedure howto:
    http://linux.dell.com/wiki/index.php/Tech/libsmbios_dellBiosUpdate
 
 Q: which tools does it use?
-A: It uses official DELL tools included in package "libsmbios" available for most distros.
+A: It uses official DELL tools included in package "libsmbios" available for most distro.
    http://linux.dell.com/libsmbios/main/index.html
 
 Q: why did you write this script??
@@ -62,9 +62,9 @@ A: for any suggestions and contributions contact cga @ callea.gaetano.andrea@gma
 
 Q: can i reuse the script to make my own??
 A: hey this is Free Software!! you can do whatever the licence i chose allows you to.
-   AS LONG AS YOU RESPECT THE LICENCE ITSELF of course ;)
+   NOTE: AS LONG AS YOU RESPECT THE LICENCE ITSELF of course ;)
 
-Q: can i reimplment the idea to make an application??
+Q: can i reuse the idea to make an application??
 A: we are already going to do an application, at the moment it's just a concept and you can find it here:
    http://github.com/cga/qtbiosupdate/tree/master
 
@@ -74,5 +74,5 @@ A: there's no development at the moment, we're still planning.
    you are more than welcome to join even at this early stage.
 
 Q: once the applications will exist and work, will this script be still available??
-A: yes, i plan to make the application but the script will remain available for 
+A: yes, we plan to make the application but the script will remain available for 
    people using CLI only distros and for those who don't want to install the application.
