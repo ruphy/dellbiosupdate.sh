@@ -30,7 +30,9 @@ VERSION HISTORY:
 
 TODO:
 
-0.1.2  Use "case/esac" and implement a better script.
+0.1.3   implement a better script;
+
+0.2.0   make the script runnable with switches;
 
 THANKS TO:
 	thanks a *lot* to the folks in #bash freenode's chat room for help and snippets!!!
