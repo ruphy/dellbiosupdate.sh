@@ -1,7 +1,7 @@
 CURRENT VERSION:
 
 Name:           dellbiosupdate.sh
-Version:        0.1.1.1
+Version:        0.1.2
 Date:           Sun, Mar 29 2009
 Author:         Callea Gaetano Andrea (aka cga)
 Contributors:
@@ -76,6 +76,8 @@ A: there's no development at the moment, we're still planning.
 Q: once the applications will exist and work, will this script be still available??
 A: yes, we plan to make the application but the script will remain available for 
    people using CLI only distros and for those who don't want to install the application.
+
+USELESS FAQs (aka teh phun c0rner :P)
 
 Q: which kind of music do you listen to when you code?
 A: generally i fire up lastfm and select psytrance.

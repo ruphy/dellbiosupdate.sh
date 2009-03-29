@@ -1,7 +1,7 @@
 CURRENT VERSION:
 
 Name:           dellbiosupdate.sh
-Version:        0.1.1.1
+Version:        0.1.2
 Date:           Sun, Mar 29 2009
 Author:         Callea Gaetano Andrea (aka cga)
 Contributors:
@@ -10,10 +10,13 @@ Location:       http://github.com/cga/dellbiosupdate.sh/tree/master
 
 VERSION HISTORY:
 
+0.1.2   Sun, Mar 29 2009:
+	use of "case/esac" in the select instead of too many if fi;
+
 0.1.1.1 Sun, Mar 29 2009:
 	fixed some little things like spaces and consinstency in if fi;
 
-0.1.1  Sat, Mar 28 2009:
+0.1.1   Sat, Mar 28 2009:
 
 	added a check on uid;
 	better "select BIOS VERSION" menu with option to quit;
@@ -21,7 +24,7 @@ VERSION HISTORY:
 	modified README;
 	added VERIONS_HISTORY file;
 
-0.1.0  Thu, Mar 26 2009:
+0.1.0   Thu, Mar 26 2009:
 	first version;
 	it works 100% but it needs some more love ;)
 
