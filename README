@@ -20,7 +20,7 @@ NOTE: A LICENCE file containing a verbatim copy of the GPLv3 is included in this
 FAQ:
 
 Q: what does this script do?
-A: this script updates the BIOS of any DELL PC, server, laptop, netbook. Interactively.
+A: this script updates the BIOS of any DELL computer. Interactively.
 
 Q: does it actually work??
 A: it works 100%, i use it regularly to update the BIOS of my own DELL XPS M1330.
@@ -51,6 +51,9 @@ A: yes indeed, since version 0.1.1 ;)
 Q: how do i do that??
 A: just run the script and see if the selection has a new version, else quit.
 
+Q: do you have any plans for the future of this script???
+A: yes indeed. i want to code it better and add features.
+
 Q: can i help somewhow??
 A: yes indeed. help and ideas are welcome =)
 
@@ -62,33 +65,15 @@ A: hey this is Free Software!! you can do whatever the licence i chose allows yo
    AS LONG AS YOU RESPECT THE LICENCE ITSELF of course ;)
 
 Q: can i reimplment the idea to make an application??
-A: see next FAQs please.
-
-Q: do you have any plans for the future of this script???
-A: yes indeed. i'd like to make it a real application for KDE >=4 one day.
-
-Q: why for KDE 4 only?
-A: well i said KDE 4 because i use it. i'm thinking about Qt >=4 only really.
-   so it will be portable across Linux, OS X and Windows.
-
-Q: so... can i make the application??
-A: i'm already planning the application with some KDE 4 developer. We plan of
-   doing a proper one with Qt and usable for other vendors other than DELL too.
-   to do this we are planning to make it modular since libsmbios works for any HDR BIOS. 
-   the vendors might code something like dellBiosUpdate (DELL's tool) and we can add it
-   in order to use it for any vendors' computer.
-
-Q: great!! what will be the application called???
-A: i'd like to name it "QtBiosUpdate".
+A: we are already going to do an application, at the
+   moment it's just a concept and you can find it here:
+   http://github.com/cga/qtbiosupdate/tree/master
 
 Q: can i join "QtBiosUpdate" development??
 A: there's no development at the moment, we're still planning.
    and since i can't code C++ and Qt yet and the dev has now time right now
    you are more than welcome to join even at this early stage.
 
-Q: where will "QtBiosUpdate" hosted??
-A: i'll create the git repo here once we have something to work on.
-   
 Q: once the applications will exist and work, will this script be still available??
 A: yes, i plan to make the application but the script will remain available for 
    people using CLI only distros and for those who don't want to install the application.
