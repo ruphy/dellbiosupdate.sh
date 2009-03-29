@@ -12,7 +12,7 @@
 #############################################################################################################
 ##                                                                                                         ##
 ##      Name:           dellbiosupdate.sh                                                                  ##
-##      Version:        0.1.1                                                                              ##
+##      Version:        0.1.1.1                                                                            ##
 ##      Date:           Sat, Mar 28 2009                                                                   ##
 ##      Author:         Callea Gaetano Andrea (aka cga)                                                    ##
 ##      Contributors:                                                                                      ##
@@ -64,7 +64,7 @@ else
 		exit 2
 	fi
 	if [ "$DISTRO" == "Ok, I'm done installing. Let's move on!" ] ; then
-		break 1	
+		break
 	fi
 done
 fi
@@ -85,7 +85,7 @@ COMPUTER=$(getSystemId | grep "Product Name:" | cut -f3,4,5 -d' ')
 ## now we 1) notify the current installed BIOS and 2) fetch all the available BIOS for your system.........
 echo "Your currently installed BIOS Version is ${BIOS_VERSION_BASE}, getting the available BIOS updates for your ${COMPUTER}....."
 echo
-a=($(curl http://linux.dell.com/repo/firmware/bios-hdrs/ 2>/dev/null | html2text | grep "system_bios_ven_0x1028_dev_${SYSTEM_ID}_version_*" | cut -f2 -d' ' | tr -d '/' | sed 's/.*_//'))
+BIOS_AVAILABLE=($(curl http://linux.dell.com/repo/firmware/bios-hdrs/ 2>/dev/null | html2text | grep "system_bios_ven_0x1028_dev_${SYSTEM_ID}_version_*" | cut -f2 -d' ' | tr -d '/' | sed 's/.*_//'))
 
 ## ......and we make them selectable:
 echo "These are the available BIOS updates available for your ${COMPUTER}:"
@@ -95,16 +95,16 @@ echo
 OLDPS3=$PS3 
 COLUMNS=10
 PS3=$'\nNote that you actually *can* install the latest BIOS update without updating the immediately subsequent version.\n\nChoose the BIOS Version you want to install by typing the corresponding number: '
-select BIOS_VERSION in "${a[@]}" "I already have BIOS Version ${BIOS_VERSION_BASE} installed" ; do 
+select BIOS_VERSION in "${BIOS_AVAILABLE[@]}" "I already have BIOS Version ${BIOS_VERSION_BASE} installed" ; do 
 ## we offer option to quit script on user will if BIOS Version is already installed
-	if [ "$BIOS_VERSION" == "I already have BIOS Version ${BIOS_VERSION_BASE} installed"  ] ; then
+	if [ "$BIOS_VERSION" == "I already have BIOS Version ${BIOS_VERSION_BASE} installed" ] ; then
 	echo 
-	echo "Thanks for using this script; Now you know you have a tool to check if new BIOS Version are available ;)"
+	echo "Thanks for using this script; now you know you have a tool to check if new BIOS versions are available ;)"
 	echo 
 	exit 3
 	
-	elif [[ $BIOS_VERSION ]]; then 
-	break; 
+	elif [[ $BIOS_VERSION ]] ; then 
+	break
 	fi 
 done
 echo 
@@ -139,8 +139,8 @@ echo "Checking if BIOS Version ${BIOS_VERSION} for your ${COMPUTER} is valid....
 sleep 3
 echo
 ## if not the script will exit and remove the downloaded BIOS:
-dellBiosUpdate -t -f ~/bios-${BIOS_VERSION}.hdr >/dev/null 2>&1; STATUS_FAIL=$?
-if (( ${STATUS_FAIL} > 0 )) ; then
+dellBiosUpdate -t -f ~/bios-${BIOS_VERSION}.hdr >/dev/null 2>&1 ; STATUS_FAIL=$?
+if [[ ${STATUS_FAIL} != 0 ]] ; then
 	echo "WARNING: BIOS HDR file BIOS version appears to be less than or equal to current BIOS version."
 	echo "This may result in bad things happening!!!!"
 	echo

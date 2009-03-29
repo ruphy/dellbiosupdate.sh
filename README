@@ -65,13 +65,12 @@ A: hey this is Free Software!! you can do whatever the licence i chose allows yo
    AS LONG AS YOU RESPECT THE LICENCE ITSELF of course ;)
 
 Q: can i reimplment the idea to make an application??
-A: we are already going to do an application, at the
-   moment it's just a concept and you can find it here:
+A: we are already going to do an application, at the moment it's just a concept and you can find it here:
    http://github.com/cga/qtbiosupdate/tree/master
 
 Q: can i join "QtBiosUpdate" development??
 A: there's no development at the moment, we're still planning.
-   and since i can't code C++ and Qt yet and the dev has now time right now
+   and since i can't code C++ and Qt yet and the dev has no time right now
    you are more than welcome to join even at this early stage.
 
 Q: once the applications will exist and work, will this script be still available??
