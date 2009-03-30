@@ -46,6 +46,7 @@ Q: can i trust this script?
 A: if you don't trust this script just see for yourself what the tools do:
    http://linux.dell.com/wiki/index.php/Tech/libsmbios_dellBiosUpdate
    http://linux.dell.com/libsmbios/main/index.html
+   http://linux.dell.com/wiki/index.php/Oss/Firmware_Tools
 
 Q: why do i have to run this script as root?
 A: because updating the BIOS requires root privileges since libsmbios has to be run as root.
