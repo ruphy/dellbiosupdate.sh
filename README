@@ -20,7 +20,7 @@ NOTE: A LICENCE file containing a verbatim copy of the GPLv3 is included in this
 FAQ:
 
 Q: what does this script do?
-A: this script updates the BIOS of any DELL computer. Interactively.
+A: this script updates the BIOS of any DELL computer. interactively.
 
 Q: does it actually work??
 A: it works 100%, i use it regularly to update the BIOS of my own DELL XPS M1330.
@@ -55,17 +55,18 @@ Q: do you have any plans for the future of this script???
 A: yes indeed. i want to code it better and add features.
 
 Q: can i help somewhow??
-A: yes indeed. help and ideas are welcome =)
+A: yes indeed. help (especially test and feedback) and ideas are welcome =)
 
 Q: great!! can i contact you??
-A: for any suggestions and contributions contact cga @ callea.gaetano.andrea@gmail.com
+A: for any suggestions and contributions contact cga @ 
+   callea (dot) gaetano (dot) andrea (at) gmail (dot) com
 
 Q: can i reuse the script to make my own??
 A: hey this is Free Software!! you can do whatever the licence i chose allows you to.
    NOTE: AS LONG AS YOU RESPECT THE LICENCE ITSELF of course ;)
 
 Q: can i reuse the idea to make an application??
-A: we are already going to do an application, at the moment it's just a concept and you can find it here:
+A: we are already going to make an application, at the moment it's just a concept and you can find it here:
    http://github.com/cga/qtbiosupdate/tree/master
 
 Q: can i join "QtBiosUpdate" development??
@@ -84,3 +85,6 @@ A: generally i fire up lastfm and select psytrance.
 
 Q: psytrance??? -.-
 A: indeed, it is not my usual cup of tea but hey... it rocks when you code.
+
+Q: do you think that "developers developers developers" is the mantra of the new millenium?
+A: well AFAIK that could be the mantra of the millennium bug 
