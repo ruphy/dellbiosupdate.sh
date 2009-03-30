@@ -1,14 +1,17 @@
 CURRENT VERSION:
 
 Name:           dellbiosupdate.sh
-Version:        0.1.2
-Date:           Sun, Mar 29 2009
+Version:        0.1.2.1
+Date:           Mon, Mar 30 2009
 Author:         Callea Gaetano Andrea (aka cga)
 Contributors:
 Languages:      BASH
 Location:       http://github.com/cga/dellbiosupdate.sh/tree/master
 
 VERSION HISTORY:
+
+0.1.2.1 Mon, Mar 30 2009:
+	using "awk" instead of "cut" to get the "Product Name:" after a feedback from user "lvillani" who couldn't get the "Product Name:" properly set. Please test and let me know.
 
 0.1.2   Sun, Mar 29 2009:
 	use of "case/esac" in the select instead of too many if fi;

@@ -33,16 +33,16 @@ fi
 
 ## here the scripts checks if the needed tools are installed:
 if which dellBiosUpdate curl html2text >/dev/null 2>&1 ; then
-        sleep 1                                              
-else                                                         
-        ## if the script doesn't find the needed tools..........
-        echo                                                    
-        echo "Either libsmbios, html2text or curl was NOT found! should I install it for you?"
-        echo
+	sleep 1 
+else
+	## if the script doesn't find the needed tools..........
+	echo
+	echo "Either libsmbios, html2text or curl was NOT found! should I install it for you?"
+	echo
 
-        ## .........you get prompted to install libsmbios for your specific DISTRO:
-        select DISTRO in "Debian, Ubuntu and derivatives" "Red Hat, Fedora, CentOS and derivatives" "SuSE, OpenSuSE and derivatives" "Arch and derivatives" "Gentoo and derivatives" "Quit, I will install it myself" "Ok, I'm done installing. Let's move on!" ; do
-	case $DISTRO in 
+	## .........you get prompted to install libsmbios for your specific DISTRO:
+	select DISTRO in "Debian, Ubuntu and derivatives" "Red Hat, Fedora, CentOS and derivatives" "SuSE, OpenSuSE and derivatives" "Arch and derivatives" "Gentoo and derivatives" "Quit, I will install it myself" "Ok, I'm done installing. Let's move on!" ; do
+	case $DISTRO in
 		"Debian, Ubuntu and derivatives") apt-get install libsmbios-bin curl html2text ;;
 		"Red Hat, Fedora, CentOS and derivatives") yum install firmware-addon-dell libsmbios curl html2text ;;
 		"SuSE, OpenSuSE and derivatives") zypper install libsmbios-bin curl html2text ;;
@@ -52,7 +52,7 @@ else
 		"Ok, I'm done installing. Let's move on!") break ;;
 	esac
 	done
-fi                                                                  
+fi
 
 ## now the script shows helpful informations about your DELL such as libsmbios version, SystemId (we need this) and BIOS version (wee need this):
 echo
@@ -65,34 +65,39 @@ echo
 SYSTEM_ID=$(getSystemId | grep "System ID:" | cut -f6 -d' ')
 BIOS_VERSION_BASE=$(getSystemId | grep "BIOS Version:" | cut -f3 -d' ')
 ## plus the model of your computer:
-COMPUTER=$(getSystemId | grep "Product Name:" | cut -f3,4,5 -d' ')
+## original version with cut; i leave it here just in case.
+#COMPUTER=$(getSystemId | grep "Product Name:" | cut -f3,4,5 -d' ')
+## improved version with awk since user "lvillani" told me he couldn't get the ${COMPUTER} set properly.
+## please test and let me know if it works good for you (tm)
+COMPUTER=$(getSystemId | grep "Product Name:" | awk -F\: '{print $NF}')
 
 ## now we 1) notify the current installed BIOS and 2) fetch all the available BIOS for your system.........
 echo "Your currently installed BIOS Version is ${BIOS_VERSION_BASE}, getting the available BIOS updates for your ${COMPUTER}....."
 echo
 BIOS_AVAILABLE=($(curl http://linux.dell.com/repo/firmware/bios-hdrs/ 2>/dev/null | html2text | grep "system_bios_ven_0x1028_dev_${SYSTEM_ID}_version_*" | cut -f2 -d' ' | tr -d '/' | sed 's/.*_//'))
 
-## ......and we make them selectable:
+## ......we list them.......... 
 echo "These are the available BIOS updates available for your ${COMPUTER}:"
 echo
 
 ## just to make sure PS3 doesn't get changed forever:
-OLDPS3=$PS3 
+OLDPS3=$PS3
 COLUMNS=10
 PS3=$'\nNote that you actually *can* install the latest BIOS update without updating the immediately subsequent version.\n\nChoose the BIOS Version you want to install by typing the corresponding number: '
-select BIOS_VERSION in "${BIOS_AVAILABLE[@]}" "I already have BIOS Version ${BIOS_VERSION_BASE} installed" ; do 
-## we offer option to quit script on user will if BIOS Version is already installed
+	## ......and we make them selectable:
+	select BIOS_VERSION in "${BIOS_AVAILABLE[@]}" "I already have BIOS Version ${BIOS_VERSION_BASE} installed" ; do 
+	## we offer option to quit script on user will if BIOS Version is already installed
 	if [ "$BIOS_VERSION" == "I already have BIOS Version ${BIOS_VERSION_BASE} installed" ] ; then
-	echo 
-	echo "Thanks for using this script; now you know you have a tool to check if new BIOS versions are available ;)"
-	echo 
-	exit 3
+		echo
+		echo "Thanks for using this script; now you know you have a tool to check if new BIOS versions are available ;)"
+		echo 
+		exit 3
 	
-	elif [[ $BIOS_VERSION ]] ; then 
-	break
-	fi 
+		elif [[ $BIOS_VERSION ]] ; then
+		break
+	fi
 done
-echo 
+echo
 COLUMNS=
 PS3=$OLDPS3
 
@@ -104,19 +109,19 @@ if [ -f "~/bios.hdr" ] ; then
 	echo "I found an existing BIOS file (~/bios.hdr) of which I don't know the version and I'm going to back it up as ~/bios-$(date +%Y-%m-%d).hdr"
 	echo
 	sleep 1
-        mv ~/bios.hdr ~/bios-$(date +%Y-%m-%d).hdr
+	mv ~/bios.hdr ~/bios-$(date +%Y-%m-%d).hdr
 	sleep 1
 	echo "Downloading selected BIOS Version ${BIOS_VERSION} for your ${COMPUTER} and saving it as ~/bios-${BIOS_VERSION}.hdr"
 	echo
 	sleep 1
-curl ${URL} -o ~/bios-${BIOS_VERSION}.hdr
-echo
+	curl ${URL} -o ~/bios-${BIOS_VERSION}.hdr
+	echo
 else
 	echo "Downloading selected BIOS Version ${BIOS_VERSION} for your ${COMPUTER} and saving it as ~/bios-${BIOS_VERSION}.hdr"
 	echo
 	sleep 1
-curl ${URL} -o ~/bios-${BIOS_VERSION}.hdr
-echo
+	curl ${URL} -o ~/bios-${BIOS_VERSION}.hdr
+	echo
 fi
 
 ## now we check that the BIOS Version you chose is appropriate for the computer:
@@ -125,31 +130,31 @@ sleep 3
 echo
 ## if not the script will exit and remove the downloaded BIOS:
 dellBiosUpdate -t -f ~/bios-${BIOS_VERSION}.hdr >/dev/null 2>&1 ; STATUS_FAIL=$?
-if [[ ${STATUS_FAIL} != 0 ]] ; then
-	echo "WARNING: BIOS HDR file BIOS version appears to be less than or equal to current BIOS version."
-	echo "This may result in bad things happening!!!!"
-	echo
-	rm -f ~/bios-${BIOS_VERSION}.hdr
-	echo "The downloaded ~/bios-${BIOS_VERSION}.hdr has been deleted."
-	echo
-	exit 4
+	if [[ ${STATUS_FAIL} != 0 ]] ; then
+		echo "WARNING: BIOS HDR file BIOS version appears to be less than or equal to current BIOS version."
+		echo "This may result in bad things happening!!!!"
+		echo
+		rm -f ~/bios-${BIOS_VERSION}.hdr
+		echo "The downloaded ~/bios-${BIOS_VERSION}.hdr has been deleted."
+		echo
+		exit 4
 
-## if BIOS is valid we load the needed DELL module and proceed with the update:
-else 
-	echo "This is a valid BIOS Version for your ${COMPUTER}, telling the operating system I want to update the BIOS:"
-	echo
-	modprobe dell_rbu
-	echo "The necessary 'dell_rbu' module has been loaded"
-	echo
-## the actual update:
-	dellBiosUpdate -u -f ~/bios-${BIOS_VERSION}.hdr
-	echo
+	## if BIOS is valid we load the needed DELL module and proceed with the update:
+	else
+		echo "This is a valid BIOS Version for your ${COMPUTER}, telling the operating system I want to update the BIOS:"
+		echo
+		modprobe dell_rbu
+		echo "The necessary 'dell_rbu' module has been loaded"
+		echo
+		## the actual update:
+		dellBiosUpdate -u -f ~/bios-${BIOS_VERSION}.hdr
+		echo
 fi
 
 ## to complete the update we must *soft* reboot:
 echo
-read -p "In order to update the BIOS you must *soft* reboot your system, do you want to reboot now? [Y/n]"; 
-if [[ $REPLY = [yY] ]] ; then 
+read -p "In order to update the BIOS you *must* reboot your system, do you want to reboot now? [Y/n]"
+if [[ $REPLY = [yY] ]] ; then
 	echo
 	echo "Rebooting in 5 seconds. Press CTRL+c to NOT reboot."
 	sleep 5
@@ -157,14 +162,5 @@ if [[ $REPLY = [yY] ]] ; then
 else
 	echo
 	echo "Don't forget to reboot your system or the BIOS will NOT update!!"
-fi 
+fi
 exit 0
-
-
-
-
-
-
-
-
-

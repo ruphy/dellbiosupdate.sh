@@ -1,8 +1,8 @@
 CURRENT VERSION:
 
 Name:           dellbiosupdate.sh
-Version:        0.1.2
-Date:           Sun, Mar 29 2009
+Version:        0.1.2.1
+Date:           Mon, Mar 30 2009
 Author:         Callea Gaetano Andrea (aka cga)
 Contributors:
 Languages:      BASH
@@ -20,10 +20,15 @@ NOTE: A LICENCE file containing a verbatim copy of the GPLv3 is included in this
 FAQ:
 
 Q: what does this script do?
-A: this script updates the BIOS of any DELL computer. interactively.
+A: this script updates the BIOS of any DELL computer as long as it's supported by dellBiosUpdate. interactively.
 
 Q: does it actually work??
 A: it works 100%, i use it regularly to update the BIOS of my own DELL XPS M1330.
+
+Q: does it work for *any* DELL computer?
+A: well yes, as long as they have DELL's RBU technology; for more info see:
+   http://linux.dell.com/wiki/index.php/Oss/Firmware_Tools  and
+   http://linux.dell.com/wiki/index.php/Oss/Firmware_Tools/Systems_Missing_RBU
 
 Q: where did you get the process??
 A: the script is based on the orginal DELL procedure howto:
@@ -31,7 +36,8 @@ A: the script is based on the orginal DELL procedure howto:
 
 Q: which tools does it use?
 A: It uses official DELL tools included in package "libsmbios" available for most distro.
-   http://linux.dell.com/libsmbios/main/index.html
+   http://linux.dell.com/libsmbios/main/index.html ; see also firmware tools:
+   http://linux.dell.com/wiki/index.php/Oss/Firmware_Tools
 
 Q: why did you write this script??
 A: basically i was tired of doing a repetitive task by hand.
@@ -46,13 +52,13 @@ A: because updating the BIOS requires root privileges since libsmbios has to be 
    NOTE: you'd run the process as root even following the DELL procedure by hand.
 
 Q: can i use this script to check if new BIOS Versions are availble?
-A: yes indeed, since version 0.1.1 ;)
+A: yes, since version 0.1.1 ;)
 
 Q: how do i do that??
 A: just run the script and see if the selection has a new version, else quit.
 
 Q: do you have any plans for the future of this script???
-A: yes indeed. i want to code it better and add features.
+A: yes. i want to code it better and add features.
 
 Q: can i help somewhow??
 A: yes indeed. help (especially test and feedback) and ideas are welcome =)
@@ -70,13 +76,14 @@ A: we are already going to make an application, at the moment it's just a concep
    http://github.com/cga/qtbiosupdate/tree/master
 
 Q: can i join "QtBiosUpdate" development??
-A: there's no development at the moment, we're still planning.
-   and since i can't code C++ and Qt yet and the dev has no time right now
-   you are more than welcome to join even at this early stage.
+A: there's no development at the moment, we're still planning. you are more than welcome to join even at this early stage.
 
 Q: once the applications will exist and work, will this script be still available??
 A: yes, we plan to make the application but the script will remain available for 
    people using CLI only distros and for those who don't want to install the application.
+
+Q: will the script work for any other vendors in the future?
+A: nope. this script is for DELL only. you will be able to use "QtBiosUpdate" for that, one day.
 
 USELESS FAQs (aka teh phun c0rner :P)
 
@@ -87,4 +94,7 @@ Q: psytrance??? -.-
 A: indeed, it is not my usual cup of tea but hey... it rocks when you code.
 
 Q: do you think that "developers developers developers" is the mantra of the new millenium?
-A: well AFAIK that could be the mantra of the millennium bug 
+A: well AFAIK that could be the mantra of the millennium bug. 
+
+
+100!!!!! (i know... i'm stupid. but this is in the USELESS section) 
